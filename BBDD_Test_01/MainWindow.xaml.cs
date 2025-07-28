@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace BBDD_Test_01
 {
@@ -23,6 +24,24 @@ namespace BBDD_Test_01
         public MainWindow()
         {
             InitializeComponent();
+
+
+
+            string connString = "Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=Spatial_DB_Test_01";
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                conn.Open();
+                MessageBox.Show("¡Conexión establecida!");
+            }
+
+
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
